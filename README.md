@@ -8,3 +8,4 @@ Thread ve Selenium kullanarak Github Botu.
 - Takipçileri listeleme.
 - Belirtilen kullanıcıların hangi programlama dillerini kullandıklarını.
 - Anahtar kelimeye göre Reposito'ları listeleme.
+- Alınan bilgileri dataframe'e kaydedip Flask kullarak Web'e yolluyor.

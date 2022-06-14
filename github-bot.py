@@ -1,12 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from user_info import username, password
-from flask import jsonify
 from threading import Thread
-from flask import Flask, render_template
 import pandas as pd
 
 baseUrl = "https://github.com/"
@@ -14,6 +10,15 @@ baseUrl = "https://github.com/"
 driver_path = "/Users/ahmetikbalkaymaz/Documents/Drivers/chromedriver"
 
 
+def signIn():
+    driver = webdriver.Chrome(driver_path)
+    driver.get(baseUrl+"login")
+    usernameInput = driver.browser.find_element(by=By.NAME, value="login")
+    usernameInput.send_keys(username)
+    passwordInput = driver.find_element(by=By.NAME, value="password")
+    passwordInput.send_keys(password)
+    btn = driver.find_element(by=By.NAME, value="commit")
+    btn.click()
 
 def findRepositories():
     driver = webdriver.Chrome(driver_path)
